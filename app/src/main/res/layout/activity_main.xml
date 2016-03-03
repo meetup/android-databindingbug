@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="java.lang.Integer" />
+        <variable name="foo" type="com.meetup.example.databindingbug.Foo" />
+        <variable name="c" type="int" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="foo.a > 0 &amp;&amp; (foo.b > 0 || c > 0)"
+            app:present="@{foo.a > 0 &amp;&amp; (foo.b > 0 || c > 0)}"
+        />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="foo.b > 0 &amp;&amp; true &amp;&amp; !false"
+            app:present="@{foo.b > 0 &amp;&amp; true &amp;&amp; !false}"
+        />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{&quot;foo.a = &quot; + Integer.toString(foo.a)}"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{&quot;foo.b = &quot; + Integer.toString(foo.b)}"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{&quot;c = &quot; + Integer.toString(c)}"
+        />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/decr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="c -= 1"
+            />
+
+            <Button
+                android:id="@+id/incr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="c += 1"
+            />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>
