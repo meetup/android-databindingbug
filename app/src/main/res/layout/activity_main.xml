@@ -22,14 +22,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="foo.a > 0 &amp;&amp; (foo.b > 0 || c > 0)"
+            android:text="(1) foo.a > 0 &amp;&amp; (foo.b > 0 || c > 0)"
             app:present="@{foo.a > 0 &amp;&amp; (foo.b > 0 || c > 0)}"
         />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="foo.b > 0 &amp;&amp; true &amp;&amp; !false"
+            android:text="(2) foo.b > 0 &amp;&amp; true &amp;&amp; !false"
             app:present="@{foo.b > 0 &amp;&amp; true &amp;&amp; !false}"
         />
 
@@ -71,6 +71,12 @@
             />
 
         </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Line (1) should not disappear when `c` is incremented."
+            />
 
     </LinearLayout>
 
